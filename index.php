@@ -5,11 +5,11 @@ require_once __DIR__ . '/Tacchi.php';
 require_once __DIR__ . '/User.php';
 require_once __DIR__ . '/Scarpe.php';
 
-$converse = new Sneaker('Converse', 'All Stars', 39,70);
+$converse = new Sneaker('Converse', 'All Stars', 39,70,'Bianche','Stoffa');
 
-$havaianas = new Sandali('Havaianas', 'Infradito', 39,20);
+$havaianas = new Sandali('Havaianas', 'Infradito', 39,20,'Gialle','Gomma');
 
-$gucci = new Tacchi('Gucci', 'Decollette', 38,350,12);
+$gucci = new Tacchi('Gucci', 'Decollette', 38, 350,'Nero','Vernice',12);
 
 $ferragni = new User('Chiara', 'Ferragni');
 $ferragni->aggiungiProdotto($converse);
@@ -35,10 +35,12 @@ $ferragni_ordine = $ferragni->getCarrello();
             <h2><?php echo $product->marca; ?> - <?php echo $product->modello; ?></h2>
             <div>Taglia: <?php echo $product->taglia; ?></div>
             <div>Prezzo: <?php echo $product->prezzo; ?> Euro</div>
-
             <?php if(isset($product->tacco)) { ?>
                 <div>Altezza tacco: <?php echo $product->tacco; ?> cm</div>
             <?php } ?>
+            <div>Colore: <?php echo $product->colore; ?></div>
+            <div>Materiale: <?php echo  $product->materiale;?><div>
+            
         </div>
     <?php } ?>
     
