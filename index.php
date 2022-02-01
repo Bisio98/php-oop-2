@@ -11,11 +11,19 @@ $havaianas = new Sandali('Havaianas', 'Infradito', 39,20,'Gialle','Gomma');
 
 $gucci = new Tacchi('Gucci', 'Decollette', 38, 350,'Nero','Vernice',12);
 
-$ferragni = new User('Chiara', 'Ferragni');
-$ferragni->aggiungiProdotto($converse);
-$ferragni->aggiungiProdotto($havaianas);
-$ferragni->aggiungiProdotto($gucci);
-$ferragni_ordine = $ferragni->getCarrello();
+
+try {
+    $ferragni = new User('Chiara', 'Ferragni');
+    $ferragni->aggiungiProdotto($converse);
+    $ferragni->aggiungiProdotto($havaianas);
+    $ferragni->aggiungiProdotto($gucci);
+    $ferragni_ordine = $ferragni->getCarrello();
+} catch(Exception $e) {
+    error_log($e);
+    echo '<div>Errore immissione dati</div>';
+    die();
+}
+
 ?>
 
 <!DOCTYPE html>
